@@ -1,4 +1,4 @@
-nums = {int(line.strip()) for line in open('day1_1.txt').readlines()}
+nums = {int(line.strip()) for line in open('day1.txt').readlines()}
 
 for num in nums:
     if (check := (2020 - num)) in nums:

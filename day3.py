@@ -2,7 +2,7 @@ import operator
 import functools
 from typing import List
 
-lines: List[str] = [line.strip() for line in open("day3_1.txt").readlines()]
+lines: List[str] = [line.strip() for line in open("day3.txt").readlines()]
 
 
 def run_slope(lines: List[str], right: int = 3, down: int = 1) -> int:

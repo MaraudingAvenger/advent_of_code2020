@@ -1,6 +1,6 @@
 import re
 
-lines = [line.strip().split(":") for line in open('day2_1.txt').readlines()]
+lines = [line.strip().split(":") for line in open('day2.txt').readlines()]
 
 
 class Rule():
