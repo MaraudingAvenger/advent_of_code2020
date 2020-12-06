@@ -1,7 +1,9 @@
+from typing import List, Tuple
+
 codes = [l.strip() for l in open('day5.txt').readlines()]
 
 
-def halve(row, letter):
+def halve(row, letter) -> List[int]:
     '''do one piece of the binary retrieval'''
     if letter in ("F", "L"):
         return row[:len(row)//2]
@@ -10,7 +12,7 @@ def halve(row, letter):
     raise TypeError(f"{letter} is invalid")
 
 
-def decode(code):
+def decode(code) -> Tuple[int, int]:
     '''get the row + seat numbers for one code'''
     row = list(range(128))
     seat = list(range(8))
@@ -18,18 +20,18 @@ def decode(code):
     rowcode = code[:7]
     seatcode = code[7:]
 
-    for letter in rowcode:
-        row = halve(row, letter)
-    row = row[0]
+    for letter in rowcode: # for each letter in the code
+        row = halve(row, letter) # cut row in half (front/back)
+    row = row[0] # the num we're left with is the row
 
-    for letter in seatcode:
+    for letter in seatcode: # do the same with the seats
         seat = halve(seat, letter)
     seat = seat[0]
 
     return row, seat
 
 
-def calc_id(code):
+def calc_id(code) -> int:
     '''return the seat id for one ticket code'''
     row, seat = decode(code)
     return (row * 8) + seat
