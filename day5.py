@@ -34,7 +34,10 @@ def calc_id(code):
     row, seat = decode(code)
     return (row * 8) + seat
 
-print("part 1: highest code =", max([(code, calc_id(code)) for code in codes], key=lambda x: x[1]))
+
+print("part 1: highest code =", max(
+    [(code, calc_id(code)) for code in codes], key=lambda x: x[1]))
 
 calc_codes = [calc_id(code) for code in codes]
-print("part 2: your seat id = ", list(filter(lambda x: x+1 not in calc_codes, calc_codes))[0]+1)
+print("part 2: your seat id = ", list(
+    filter(lambda x: x+1 not in calc_codes, calc_codes))[0]+1 )
